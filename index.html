@@ -150,11 +150,11 @@
             vec3 finalColor = vec3(0.0);
 
             for (float i = 0.0; i < 3.0; i++) {
-                uv = fract(uv * 1.1) - 0.5; // Creating repetition by using fract() and centering uv again 
+                uv = fract(uv * 1.1) - 0.5; // Creating repetition by using fract() and breaking symmetry for visual look. 
 
                 float distance = length(uv) * exp(-length(uv0)); 
             
-                vec3 color = palette(distance_uv0 + (u_time / 2000.)); // using palette function and 
+                vec3 color = palette(distance_uv0 + (u_time / 2000.)); // using palette function and repeating color change 
 
                 distance = sin(distance * 40.0 - (u_time / 700.)) / 8.0; // Repeating Rings over time 
                 distance = abs(distance); // Negative values (inside the ring) will turn positive
